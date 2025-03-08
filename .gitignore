@@ -73,3 +73,6 @@ crashlytics-build.properties
 
 # VS Code Settings
 /.vscode/
+
+# Unity Editor Version
+/ProjectSettings/ProjectVersion.txt
