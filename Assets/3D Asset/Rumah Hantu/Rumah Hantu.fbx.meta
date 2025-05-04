@@ -3,7 +3,177 @@ guid: b50e9f2275b3a5d4998a662966c6aa58
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Back door
+    second: {fileID: 2100000, guid: ff3a5f21a300b324591a836acc6d1f28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Back door glass
+    second: {fileID: 2100000, guid: 65c056f2c9878d14ca030d5a745a39f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Back entryway
+    second: {fileID: 2100000, guid: 6280616b072b8c141a5d05003e5ef28f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corner beams
+    second: {fileID: 2100000, guid: d23126415f551674e9110434743bd174, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Entryway
+    second: {fileID: 2100000, guid: 1c0c21366bbbefb4386b4705b2f2e8bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: External window frames main
+    second: {fileID: 2100000, guid: 55d550d0468462c4593f716bc0d5125b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Front door
+    second: {fileID: 2100000, guid: 007649eebf755074082f606dd23d85ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Geenhouse windows
+    second: {fileID: 2100000, guid: 6395a1d0d3dd93846bf0121131bb71e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: 67bf1b20e4a99274583c347795256513, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Greenhouse
+    second: {fileID: 2100000, guid: 3452663a71164d84a9cc0e093dfb3d3d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Greenhouse bottom
+    second: {fileID: 2100000, guid: 51250522712fca1469cba40f5940dd55, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Greenhouse roof
+    second: {fileID: 2100000, guid: 5a168850ffc4dd74c81a0e60e5dd4bf0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House bottom
+    second: {fileID: 2100000, guid: 90c5399969e41d1429f8be18ae263a21, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Internal window frames main
+    second: {fileID: 2100000, guid: ae46bc8451e885049a27f0ae4b3fe8b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Knocker
+    second: {fileID: 2100000, guid: 05e85af66a9e26c4ea2f30a19c2b797b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light attachment
+    second: {fileID: 2100000, guid: 0e8be0890ec38674a900ad7c5439114b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light bands
+    second: {fileID: 2100000, guid: cbb2fd08726649940bd6f6780469a3ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light shade
+    second: {fileID: 2100000, guid: 2de9df3f2e332e54c9ffeb971a22fe7f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lower window roof
+    second: {fileID: 2100000, guid: 84dd6585c0e1faa4a87f5df61341bc0c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Main roof
+    second: {fileID: 2100000, guid: 10847666abc2c744ca2dd496e7b2a628, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roof edge
+    second: {fileID: 2100000, guid: 87ee6cd6868ecd94c914517611887d90, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roof fence 4
+    second: {fileID: 2100000, guid: 53fde635adcf53b4fa8b1f9742476c9e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roof fences 1
+    second: {fileID: 2100000, guid: 89965b6dabf0e77408426ef283ff2915, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roof fences 2
+    second: {fileID: 2100000, guid: 6d452bd244a8c8249b251a6c2d2b038c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roof fences 3
+    second: {fileID: 2100000, guid: ac4dcdece81182448b2ac96344b49848, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roof window frame
+    second: {fileID: 2100000, guid: 239d68dbb875aaa4da913a780aef11e1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roof window glass
+    second: {fileID: 2100000, guid: 6772bb151e583df4fb1e37863870b63b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roof window roof
+    second: {fileID: 2100000, guid: d515383fa480f724fbb379e9f1d92095, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roof window stone
+    second: {fileID: 2100000, guid: b60c0dbe99aa2d940993152ae82d6dcd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sidings
+    second: {fileID: 2100000, guid: 70f75567fb9a8ed4d8bf6076645b5537, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tower roof
+    second: {fileID: 2100000, guid: 98f4d3a00015f504f9ca6b13961a9e95, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Triangle roof
+    second: {fileID: 2100000, guid: 1ea2adb4c08121e43ad6e824a91a8805, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Triangle roof glass
+    second: {fileID: 2100000, guid: e0f4e1e65370c9445b35cbd85ded2ec0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Triangle roof roof
+    second: {fileID: 2100000, guid: bf2a77147b27ba24fa1589580e547653, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
