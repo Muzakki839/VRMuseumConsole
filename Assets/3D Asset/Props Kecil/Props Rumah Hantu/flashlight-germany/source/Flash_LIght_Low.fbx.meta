@@ -3,7 +3,17 @@ guid: 4a5d50b01f8a2c74dacdf1614cfbec68
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Latarka
+    second: {fileID: 2100000, guid: 1d1d7037bc469364eb4b8292bdd38425, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Szkie\xF8ko"
+    second: {fileID: 2100000, guid: 0aa860508396f194a985ce840147fb54, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
