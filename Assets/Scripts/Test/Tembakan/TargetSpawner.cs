@@ -15,12 +15,9 @@ public class TargetSpawner : MonoBehaviour
     public TargetEntry[] targetEntries;
 
     [Header("Spawn Points")]
-    public Transform[] popupPoints;
-    public Transform[] moverStartPoints;
+    public PopupTargetSlot[] popupSlots;
 
     [Header("Spawn Settings")]
-    public float popupSpeed = 3f;
-    public float moverSpeed = 2f;
     public float interval = 1.5f;
 
     void Start()
@@ -37,11 +34,7 @@ public class TargetSpawner : MonoBehaviour
             GameObject prefab = GetRandomTarget();
             if (prefab == null) continue;
 
-            bool useMover = Random.value < 0.2f; // 20% chance mover
-            if (useMover)
-                SpawnMover(prefab);
-            else
-                SpawnPopup(prefab);
+            SpawnPopup(prefab);
         }
     }
 
@@ -62,34 +55,19 @@ public class TargetSpawner : MonoBehaviour
 
     void SpawnPopup(GameObject prefab)
     {
-        List<Transform> freeSlots = new List<Transform>();
+        List<PopupTargetSlot> freeSlots = new List<PopupTargetSlot>();
 
-        foreach (var point in popupPoints)
+        foreach (var slot in popupSlots)
         {
-            PopupSlot slot = point.GetComponent<PopupSlot>();
-            if (slot != null && !slot.IsOccupied)
+            if (!slot.IsOccupied)
             {
-                freeSlots.Add(point);
+                freeSlots.Add(slot);
             }
         }
 
         if (freeSlots.Count == 0) return;
 
-        Transform spawnPoint = freeSlots[Random.Range(0, freeSlots.Count)];
-        GameObject target = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
-        TargetPopup popup = target.AddComponent<TargetPopup>();
-        popup.Init();
-        spawnPoint.GetComponent<PopupSlot>().SetOccupied(true);
-        popup.onHide = () => spawnPoint.GetComponent<PopupSlot>().SetOccupied(false);
-    }
-
-    void SpawnMover(GameObject prefab)
-    {
-        bool fromLeft = Random.value > 0.5f;
-        Transform spawnPoint = fromLeft ? moverStartPoints[0] : moverStartPoints[1];
-        Vector3 dir = fromLeft ? Vector3.right : Vector3.left;
-
-        GameObject target = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
-        target.AddComponent<TargetMover>().Init(dir, moverSpeed);
+        PopupTargetSlot chosenSlot = freeSlots[Random.Range(0, freeSlots.Count)];
+        chosenSlot.Spawn(prefab);
     }
 }

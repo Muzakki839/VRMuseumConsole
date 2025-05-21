@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1183156967580272646}
+  - component: {fileID: 3106588393019999896}
+  - component: {fileID: 8909954577021277090}
   m_Layer: 0
   m_Name: Target 50
   m_TagString: Untagged
@@ -32,6 +34,40 @@ Transform:
   - {fileID: 4726818654182068216}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3106588393019999896
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7709049499161245900}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7157991, y: 1.7469531, z: 0.061389}
+  m_Center: {x: -0.00000023841858, y: 0.87456745, z: 0.0018699616}
+--- !u!114 &8909954577021277090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7709049499161245900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f1e0ce750595df4a8c6d07dc1fe2aa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointValue: 50
 --- !u!1001 &5049575289387690003
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,8 +10,8 @@ public class GunShoot : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, muzzleTransform.position, Quaternion.identity);
 
-        // Koreksi rotasi prefab bullet: dari Y+ ke Z+
-        Quaternion correction = Quaternion.Euler(90, 0, 0); // Y+ ke Z+ biasanya -90 derajat di X
+        // Koreksi rotasi prefab bullet dari Y+ ke Z+
+        Quaternion correction = Quaternion.Euler(90, 0, 0); // Rotasi agar Z+ jadi depan
         bullet.transform.rotation = muzzleTransform.rotation * correction;
 
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
@@ -19,6 +19,4 @@ public class GunShoot : MonoBehaviour
 
         Destroy(bullet, 5f);
     }
-
-
 }
