@@ -1,73 +1,134 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public struct TargetEntry
+public class TargetEntry
 {
     public GameObject prefab;
-    [Range(0f, 1f)] public float spawnChance;
+    [Range(0f, 1f)] public float spawnChance = 1f; // Probabilitas muncul (0–1)
 }
+
 
 public class TargetSpawner : MonoBehaviour
 {
-    [Header("Target Configuration")]
+    [Header("Target Prefabs")]
     public TargetEntry[] targetEntries;
 
     [Header("Spawn Points")]
-    public PopupTargetSlot[] popupSlots;
+    public Transform[] spawnPoints;
 
     [Header("Spawn Settings")]
-    public float interval = 1.5f;
+    public float spawnInterval = 2f;
 
-    void Start()
+    [Header("Animation Settings")]
+    public float popupHeight = 1.5f;
+    public float popupSpeed = 3f;
+
+    private GameObject currentTarget;
+    private bool spawnRequestedEarly = false;
+
+    private void Start()
     {
         StartCoroutine(SpawnRoutine());
     }
 
-    IEnumerator SpawnRoutine()
+    private IEnumerator SpawnRoutine()
     {
         while (true)
         {
-            yield return new WaitForSeconds(interval);
+            float timer = 0f;
 
-            GameObject prefab = GetRandomTarget();
-            if (prefab == null) continue;
+            // Tunggu spawn interval atau hingga ada request spawn lebih awal
+            while (timer < spawnInterval && !spawnRequestedEarly)
+            {
+                timer += Time.deltaTime;
+                yield return null;
+            }
 
-            SpawnPopup(prefab);
+            spawnRequestedEarly = false;
+
+            // Jika target lama masih ada dan belum dihancurkan
+            if (currentTarget != null)
+            {
+                TargetPoint tp = currentTarget.GetComponent<TargetPoint>();
+                if (tp != null && !tp.isBeingDestroyed)
+                {
+                    yield return StartCoroutine(HideTarget(currentTarget));
+                    Destroy(currentTarget);
+                }
+            }
+
+            // Spawn baru
+            GameObject prefab = GetRandomTargetPrefab();
+            Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+
+            currentTarget = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
+
+            yield return StartCoroutine(ShowTarget(currentTarget));
         }
     }
 
-    GameObject GetRandomTarget()
+    private GameObject GetRandomTargetPrefab()
     {
-        float roll = Random.value;
+        float total = 0f;
+        foreach (var entry in targetEntries)
+            total += entry.spawnChance;
+
+        float random = Random.Range(0f, total);
         float cumulative = 0f;
 
         foreach (var entry in targetEntries)
         {
             cumulative += entry.spawnChance;
-            if (roll <= cumulative)
+            if (random <= cumulative)
                 return entry.prefab;
         }
 
-        return null;
+        return targetEntries[0].prefab; // fallback
     }
 
-    void SpawnPopup(GameObject prefab)
+    public void ForceNextSpawn()
     {
-        List<PopupTargetSlot> freeSlots = new List<PopupTargetSlot>();
-
-        foreach (var slot in popupSlots)
-        {
-            if (!slot.IsOccupied)
-            {
-                freeSlots.Add(slot);
-            }
-        }
-
-        if (freeSlots.Count == 0) return;
-
-        PopupTargetSlot chosenSlot = freeSlots[Random.Range(0, freeSlots.Count)];
-        chosenSlot.Spawn(prefab);
+        spawnRequestedEarly = true;
     }
+
+    private IEnumerator ShowTarget(GameObject target)
+    {
+        if (target == null) yield break;
+
+        Vector3 end = target.transform.position;
+        Vector3 start = end + Vector3.down * popupHeight;
+
+        float t = 0f;
+        target.transform.position = start;
+
+        while (t < 1f)
+        {
+            if (target == null) yield break;
+
+            t += Time.deltaTime * popupSpeed;
+            target.transform.position = Vector3.Lerp(start, end, t);
+            yield return null;
+        }
+    }
+
+    private IEnumerator HideTarget(GameObject target)
+    {
+        if (target == null) yield break;
+
+        Vector3 start = target.transform.position;
+        Vector3 end = start + Vector3.down * popupHeight;
+
+        float t = 0f;
+
+        while (t < 1f)
+        {
+            if (target == null) yield break;
+
+            t += Time.deltaTime * popupSpeed;
+            target.transform.position = Vector3.Lerp(start, end, t);
+            yield return null;
+        }
+    }
+
 }

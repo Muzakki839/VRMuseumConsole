@@ -3,34 +3,31 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Bullet : MonoBehaviour
 {
-    public TrailRenderer trailPrefab;
-    private TrailRenderer trailInstance;
+    [Header("Tag Settings")]
+    public string targetTag = "Target";
 
-    private void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-        // Tambahkan TrailRenderer jika prefab tersedia dan belum ada
-        if (trailPrefab != null && trailInstance == null)
-        {
-            trailInstance = Instantiate(trailPrefab, transform.position, Quaternion.identity, transform);
-            trailInstance.Clear();
-        }
-    }
+        Debug.Log("Bullet collided with: " + collision.gameObject.name);
 
-    private void OnTriggerEnter(Collider other)
-    {
-        TargetPoint target = other.GetComponent<TargetPoint>();
-        if (target != null)
+        if (collision.gameObject.CompareTag(targetTag))
         {
-            target.OnShot();
-
-            // Jika ada slot, suruh dia menghancurkan target dengan benar
-            PopupTargetSlot slot = target.GetComponentInParent<PopupTargetSlot>();
-            if (slot != null)
+            if (collision.gameObject.TryGetComponent(out TargetPoint target))
             {
-                slot.ForceHide();
+                if (!target.isBeingDestroyed)
+                {
+                    Debug.Log("[Bullet] Valid target hit.");
+                    target.OnShot();
+
+                    // Cari spawner dan suruh spawn baru
+                    if (FindFirstObjectByType<TargetSpawner>() is TargetSpawner spawner)
+                    {
+                        spawner.ForceNextSpawn();
+                    }
+                }
             }
         }
 
-        Destroy(gameObject); // Hancurkan peluru apapun yang ditabrak
+        Destroy(gameObject, 1f);
     }
 }
