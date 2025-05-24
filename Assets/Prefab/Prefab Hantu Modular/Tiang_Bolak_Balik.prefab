@@ -83,6 +83,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8f84ff6389cb19840b237d918467c407, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 994fa39f32075e644b5e94780b25c130, type: 2}
     - target: {fileID: 919132149155446097, guid: 8f84ff6389cb19840b237d918467c407, type: 3}
       propertyPath: m_Name
       value: Tiang_90_Derajat_2 (4)
@@ -145,6 +149,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8f84ff6389cb19840b237d918467c407, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 994fa39f32075e644b5e94780b25c130, type: 2}
     - target: {fileID: 919132149155446097, guid: 8f84ff6389cb19840b237d918467c407, type: 3}
       propertyPath: m_Name
       value: Tiang_90_Derajat_2 (3)
@@ -207,6 +215,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8f84ff6389cb19840b237d918467c407, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 994fa39f32075e644b5e94780b25c130, type: 2}
     - target: {fileID: 919132149155446097, guid: 8f84ff6389cb19840b237d918467c407, type: 3}
       propertyPath: m_Name
       value: Tiang_90_Derajat_2 (2)
@@ -269,6 +281,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8f84ff6389cb19840b237d918467c407, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 994fa39f32075e644b5e94780b25c130, type: 2}
     - target: {fileID: 919132149155446097, guid: 8f84ff6389cb19840b237d918467c407, type: 3}
       propertyPath: m_Name
       value: Tiang_90_Derajat_2 (5)
