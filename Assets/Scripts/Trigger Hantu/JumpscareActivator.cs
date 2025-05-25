@@ -4,7 +4,11 @@ public class JumpscareActivator : MonoBehaviour
 {
     [Header("Activation Settings")]
     public GameObject targetObjectToActivate;
-    public bool playMovement = true;
+    public bool playMovement = false;
+
+    [Header("Destruction Settings")]
+    public bool isDestroyAfterDelay = false;
+    public float destroyDelay = 1f;
 
     [Header("Audio Settings")]
     public AudioClip jumpscareSound;
@@ -14,6 +18,7 @@ public class JumpscareActivator : MonoBehaviour
     public Renderer targetRenderer;
     public Material newMaterial;
     public int materialIndexToSwap = 0;
+
 
     private Material[] originalMaterials;
 
@@ -36,7 +41,16 @@ public class JumpscareActivator : MonoBehaviour
         SwapMaterial();
         PlayJumpscareSound();
 
-        Destroy(gameObject); // Trigger hanya sekali
+        if (isDestroyAfterDelay)
+        {
+            Destroy(gameObject, destroyDelay);
+            Debug.Log("Object will be destroyed after delay: " + destroyDelay + " seconds.");
+        }
+        else
+        {
+            Destroy(gameObject); // Trigger hanya sekali
+            Debug.Log("Object destroyed immediately.");
+        }
     }
 
     private void ActivateTargetObject()
