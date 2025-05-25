@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 160956424821321790}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1222, z: 0.1808}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -81,7 +81,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1926168734123630116
 Transform:
   m_ObjectHideFlags: 0
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 1
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -242,10 +242,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 1
-      value: 1
+      time: 0
+      value: 0
       inSlope: 0
       outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -253,14 +262,14 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
-  m_FarAttachMode: 0
+  m_FarAttachMode: 1
 --- !u!65 &4415809458051333693
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -280,8 +289,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.03358723, y: 0.13300416, z: 0.20614395}
-  m_Center: {x: -0.0022738073, y: 0.07035492, z: 0.0735053}
+  m_Size: {x: 0.03358723, y: 0.13300416, z: 0.14767015}
+  m_Center: {x: -0.0022738073, y: 0.07035492, z: 0.0442684}
 --- !u!114 &923433471085799881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 2650010498142335022, guid: 46e656d3067ea2547ab177e1f3d4c9da, type: 3}
   muzzleTransform: {fileID: 8843598726178530460}
-  bulletForce: 1
+  bulletForce: 10
 --- !u!1001 &2199084624746887223
 PrefabInstance:
   m_ObjectHideFlags: 0

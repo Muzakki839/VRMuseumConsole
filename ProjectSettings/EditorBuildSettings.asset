@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/JumpScare Video.unity
     guid: 6723f87148de50c46a8956dd256f5e08
   - enabled: 1
-    path: Assets/Scenes/Rumah Hantu.unity
+    path: Assets/Scenes/Rumah Hantu/Rumah Hantu.unity
     guid: c0d6745eb835b454a9e3ceb9a2b57065
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
