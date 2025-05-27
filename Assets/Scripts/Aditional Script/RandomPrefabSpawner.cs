@@ -1,57 +1,81 @@
 using UnityEngine;
 
-public class RandomPrefabSpawner : MonoBehaviour
+public class RandomColorSpawner : MonoBehaviour
 {
-    public GameObject[] prefabs;             // Isi dengan beberapa prefab
-    public Material[] possibleMaterials;     // Isi dengan 3 material yang bisa dirandom
-    public Transform spawnPoint;             // Posisi spawn
-    public int spawnCount = 1;               // Berapa kali spawn
+    [Header("Spawn Settings")]
+    public GameObject[] prefabsWithColor;     // Prefab yang akan diwarnai
+    public GameObject[] prefabsWithoutColor;  // Prefab yang tidak diwarnai
+    public Transform spawnPoint;              // Titik pusat spawn
+    public int spawnCount = 5;                // Total objek yang di-spawn
+    public float spawnRadius = 2f;            // Radius area spawn acak
 
     void Start()
     {
         for (int i = 0; i < spawnCount; i++)
         {
-            SpawnRandomPrefab();
+            SpawnRandomCharacter();
         }
     }
 
-    void SpawnRandomPrefab()
+    void SpawnRandomCharacter()
     {
-        if (prefabs.Length == 0 || possibleMaterials.Length == 0) return;
+        // Tentukan apakah spawn dari array withColor atau withoutColor
+        bool useColor = Random.value < 0.5f; // 50% chance (bisa diubah jadi parameter juga)
+        GameObject[] sourceArray = useColor ? prefabsWithColor : prefabsWithoutColor;
 
-        // Pilih prefab acak
-        GameObject selectedPrefab = prefabs[Random.Range(0, prefabs.Length)];
-
-        // Spawn prefab
-        GameObject obj = Instantiate(selectedPrefab, spawnPoint.position, Quaternion.identity);
-
-        // Ambil renderer
-        Renderer rend = obj.GetComponent<Renderer>();
-        if (rend == null)
+        if (sourceArray.Length == 0)
         {
-            rend = obj.GetComponentInChildren<Renderer>(); // fallback ke anaknya
+            Debug.LogWarning("No prefabs available in selected group.");
+            return;
         }
 
-        if (rend != null)
+        // Pilih prefab secara acak dari array yang sesuai
+        GameObject selectedPrefab = sourceArray[Random.Range(0, sourceArray.Length)];
+
+        // Posisi acak sekitar spawnPoint
+        Vector3 randomOffset = new Vector3(
+            Random.Range(-spawnRadius, spawnRadius),
+            0,
+            Random.Range(-spawnRadius, spawnRadius)
+        );
+        Vector3 spawnPos = spawnPoint.position + randomOffset;
+
+        // Spawn
+        GameObject obj = Instantiate(selectedPrefab, spawnPos, Quaternion.identity);
+
+        // Jika prefab dari group yang perlu dirandom warnanya
+        if (useColor)
         {
-            Material[] mats = rend.materials;
+            Renderer rend = obj.GetComponentInChildren<SkinnedMeshRenderer>();
+            if (rend == null)
+                rend = obj.GetComponentInChildren<Renderer>();
 
-            if (mats.Length >= 4)
+            if (rend != null)
             {
-                int indexToReplace = Random.Range(1, 4); // Index 1–3
-                Material randomMat = possibleMaterials[Random.Range(0, possibleMaterials.Length)];
-
-                mats[indexToReplace] = randomMat;
-                rend.materials = mats;
+                ApplyRandomColorToClothes(rend);
             }
             else
             {
-                Debug.LogWarning($"{obj.name} doesn't have enough materials (min 4).");
+                Debug.LogWarning($"{obj.name} doesn't have a Renderer.");
             }
         }
-        else
+    }
+
+    void ApplyRandomColorToClothes(Renderer rend)
+    {
+        Material[] mats = rend.materials;
+
+        for (int i = 0; i < mats.Length; i++)
         {
-            Debug.LogWarning($"{obj.name} has no Renderer.");
+            string cleanedName = mats[i].name.ToLower().Replace(" (instance)", "").Trim();
+
+            if (cleanedName == "kulit_manusia")
+                continue;
+
+            // Warna terang
+            mats[i].color = Random.ColorHSV(0f, 1f, 0.5f, 1f, 0.6f, 1f);
         }
+
+        rend.materials = mats;
     }
 }

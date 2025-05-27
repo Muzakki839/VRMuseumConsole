@@ -3,7 +3,27 @@ guid: 2c707ccee6119b548b49e4d17abb4ee7
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Baju
+    second: {fileID: 2100000, guid: 43ac9a6ee6f1f96499d29a74679fb33b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Celana
+    second: {fileID: 2100000, guid: 05e15006b9dffb844846f46686b5f289, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kulit Manusia
+    second: {fileID: 2100000, guid: e72d7d9d36e58e84989d0d18df537e9c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sepatu
+    second: {fileID: 2100000, guid: 74af986be1d4a464381acace562825b2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

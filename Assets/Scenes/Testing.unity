@@ -500,7 +500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &106748166
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1773,6 +1773,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PO Dead
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b75de03ad8c60c842abbdb7fdb643566, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2851,6 +2855,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1586359057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1586359059}
+  - component: {fileID: 1586359058}
+  m_Layer: 0
+  m_Name: Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1586359058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586359057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f4f1ae332f1324bac34561c7af0aac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabsWithColor:
+  - {fileID: 4435188605754463596, guid: 1b21724fa5c8649469a6e5cf12e01a01, type: 3}
+  - {fileID: 6827658396855500965, guid: b9f54dd8822cb58449b2cb990affbad1, type: 3}
+  - {fileID: 4901656296845717888, guid: 65d73fecc281f5448bdb582428ddfde1, type: 3}
+  - {fileID: 9103607589361886774, guid: 08f7a32a55577d24e9938edab6050da9, type: 3}
+  - {fileID: 5611607873414964879, guid: 50495a8c6d09f6d49bc3f3bef15fbeec, type: 3}
+  - {fileID: 2336761746772593719, guid: eeb78915ba82049429c012a57c168d0c, type: 3}
+  - {fileID: 3694907339366383778, guid: fe4bbcfbd10dbfc4bbf477d0054d02ff, type: 3}
+  - {fileID: 8004678870991574738, guid: b53f0973bfbbd5d489635d20573cde51, type: 3}
+  prefabsWithoutColor:
+  - {fileID: 92421050146599830, guid: c14d3ed87fe2aa842a8734c116a5c3b2, type: 3}
+  spawnPoint: {fileID: 1586359059}
+  spawnCount: 20
+  spawnRadius: 5
+--- !u!4 &1586359059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586359057}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1596398460 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8072890477496077224, guid: 085ce58b196caa446a8545c9dd388793, type: 3}
@@ -3276,6 +3338,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trigger Jump Scare Static
       objectReference: {fileID: 0}
+    - target: {fileID: 5448152901482963402, guid: dbe1889019174d1469a64e598c1d26ac, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3479,6 +3545,10 @@ PrefabInstance:
     - target: {fileID: 1428771370915804416, guid: c9cf6e71cf872564c8fdd5f5fb2dcd8c, type: 3}
       propertyPath: m_Name
       value: Trigger Jump Scare Mover
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428771370915804416, guid: c9cf6e71cf872564c8fdd5f5fb2dcd8c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4730658852241150911, guid: c9cf6e71cf872564c8fdd5f5fb2dcd8c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3709,7 +3779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4988684991852651028, guid: 403d37577fc51de42964f0bbaba14c4d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3741,3 +3811,4 @@ SceneRoots:
   - {fileID: 5723029617281412222}
   - {fileID: 1043977853689369830}
   - {fileID: 881712594}
+  - {fileID: 1586359059}
