@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 4bd9cf01183621d4f9eb694eaa75323f, type: 3}
@@ -56,4 +57,65 @@ PrefabInstance:
       value: Bathroom_Props_Set02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -3878387401421331692, guid: 4bd9cf01183621d4f9eb694eaa75323f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 753266542134911187}
+    - targetCorrespondingSourceObject: {fileID: -6053638128227562433, guid: 4bd9cf01183621d4f9eb694eaa75323f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6196565173876160090}
   m_SourcePrefab: {fileID: 100100000, guid: 4bd9cf01183621d4f9eb694eaa75323f, type: 3}
+--- !u!1 &1547166245989304278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3878387401421331692, guid: 4bd9cf01183621d4f9eb694eaa75323f, type: 3}
+  m_PrefabInstance: {fileID: 6869555909799224514}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &753266542134911187
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547166245989304278}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.720852, y: 0.76993316, z: 1.0377185}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &8406171590965389565 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6053638128227562433, guid: 4bd9cf01183621d4f9eb694eaa75323f, type: 3}
+  m_PrefabInstance: {fileID: 6869555909799224514}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6196565173876160090
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406171590965389565}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.3713886, y: 1.5700516, z: 1.1096448}
+  m_Center: {x: 0, y: 0, z: 0}

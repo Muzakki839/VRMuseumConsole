@@ -95,6 +95,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3735837728292483755}
+  - component: {fileID: -1692195220238708925}
   m_Layer: 0
   m_Name: tv_desk_1
   m_TagString: Untagged
@@ -119,6 +120,27 @@ Transform:
   - {fileID: 2352462198941102374}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &-1692195220238708925
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3135091939257642254}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5754411, y: 0.8969357, z: 0.76237977}
+  m_Center: {x: -0.0042943954, y: 0.47237766, z: -0.00429447}
 --- !u!1 &3836260250939946014
 GameObject:
   m_ObjectHideFlags: 0

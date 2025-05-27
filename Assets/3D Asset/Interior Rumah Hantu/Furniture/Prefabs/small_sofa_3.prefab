@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5454557511475104304}
+  - component: {fileID: -5164156726857434225}
   m_Layer: 0
   m_Name: small_sofa_3
   m_TagString: Untagged
@@ -33,6 +34,27 @@ Transform:
   - {fileID: 1620292577580643837}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &-5164156726857434225
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434750274836893697}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.98127985, y: 1.1747209, z: 0.82215846}
+  m_Center: {x: -0.009360075, y: 0.58968395, z: -0.023400128}
 --- !u!1 &6683156956088379042
 GameObject:
   m_ObjectHideFlags: 0
