@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6233736917363604591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4743398899924449024}
+  - component: {fileID: 4237150247964079041}
+  m_Layer: 0
+  m_Name: Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4743398899924449024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6233736917363604591}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4237150247964079041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6233736917363604591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f4f1ae332f1324bac34561c7af0aac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabsWithColor:
+  - {fileID: 4435188605754463596, guid: 1b21724fa5c8649469a6e5cf12e01a01, type: 3}
+  - {fileID: 6827658396855500965, guid: b9f54dd8822cb58449b2cb990affbad1, type: 3}
+  - {fileID: 4901656296845717888, guid: 65d73fecc281f5448bdb582428ddfde1, type: 3}
+  - {fileID: 9103607589361886774, guid: 08f7a32a55577d24e9938edab6050da9, type: 3}
+  - {fileID: 5611607873414964879, guid: 50495a8c6d09f6d49bc3f3bef15fbeec, type: 3}
+  - {fileID: 2336761746772593719, guid: eeb78915ba82049429c012a57c168d0c, type: 3}
+  - {fileID: 3694907339366383778, guid: fe4bbcfbd10dbfc4bbf477d0054d02ff, type: 3}
+  - {fileID: 8004678870991574738, guid: b53f0973bfbbd5d489635d20573cde51, type: 3}
+  prefabsWithoutColor:
+  - {fileID: 92421050146599830, guid: c14d3ed87fe2aa842a8734c116a5c3b2, type: 3}
+  spawnPoint: {fileID: 4743398899924449024}
+  spawnCount: 20
+  spawnRadius: 5

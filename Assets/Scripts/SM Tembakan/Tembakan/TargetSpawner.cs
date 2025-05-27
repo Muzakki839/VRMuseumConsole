@@ -26,12 +26,24 @@ public class TargetSpawner : MonoBehaviour
 
     private GameObject currentTarget;
     private bool spawnRequestedEarly = false;
+    private Coroutine spawnRoutineCoroutine;
 
-    private void Start()
+    public void StartSpawning()
     {
-        StartCoroutine(SpawnRoutine());
+        if (spawnRoutineCoroutine != null)
+            StopCoroutine(spawnRoutineCoroutine);
+
+        spawnRoutineCoroutine = StartCoroutine(SpawnRoutine());
     }
 
+    public void StopSpawning()
+    {
+        if (spawnRoutineCoroutine != null)
+        {
+            StopCoroutine(spawnRoutineCoroutine);
+            spawnRoutineCoroutine = null;
+        }
+    }
     private IEnumerator SpawnRoutine()
     {
         while (true)
