@@ -4,8 +4,8 @@ public class RandomColorSpawner : MonoBehaviour
 {
     [Header("Spawn Settings")]
     public GameObject[] prefabsWithColor;     // Prefab yang akan diwarnai
-    public GameObject[] prefabsWithoutColor;  // Prefab yang tidak diwarnai
     public Transform spawnPoint;              // Titik pusat spawn
+    public Transform centerPoint;              // Titik pusat spawn
     public int spawnCount = 5;                // Total objek yang di-spawn
     public float spawnRadius = 2f;            // Radius area spawn acak
 
@@ -19,18 +19,14 @@ public class RandomColorSpawner : MonoBehaviour
 
     void SpawnRandomCharacter()
     {
-        // Tentukan apakah spawn dari array withColor atau withoutColor
-        bool useColor = Random.value < 0.5f; // 50% chance (bisa diubah jadi parameter juga)
-        GameObject[] sourceArray = useColor ? prefabsWithColor : prefabsWithoutColor;
-
-        if (sourceArray.Length == 0)
+        if (prefabsWithColor.Length == 0)
         {
-            Debug.LogWarning("No prefabs available in selected group.");
+            Debug.LogWarning("No prefabs available in prefabsWithColor.");
             return;
         }
 
-        // Pilih prefab secara acak dari array yang sesuai
-        GameObject selectedPrefab = sourceArray[Random.Range(0, sourceArray.Length)];
+        // Pilih prefab secara acak
+        GameObject selectedPrefab = prefabsWithColor[Random.Range(0, prefabsWithColor.Length)];
 
         // Posisi acak sekitar spawnPoint
         Vector3 randomOffset = new Vector3(
@@ -43,21 +39,29 @@ public class RandomColorSpawner : MonoBehaviour
         // Spawn
         GameObject obj = Instantiate(selectedPrefab, spawnPos, Quaternion.identity);
 
-        // Jika prefab dari group yang perlu dirandom warnanya
-        if (useColor)
-        {
-            Renderer rend = obj.GetComponentInChildren<SkinnedMeshRenderer>();
-            if (rend == null)
-                rend = obj.GetComponentInChildren<Renderer>();
+        // Terapkan warna acak
+        Renderer rend = obj.GetComponentInChildren<SkinnedMeshRenderer>();
+        if (rend == null)
+            rend = obj.GetComponentInChildren<Renderer>();
 
-            if (rend != null)
-            {
-                ApplyRandomColorToClothes(rend);
-            }
-            else
-            {
-                Debug.LogWarning($"{obj.name} doesn't have a Renderer.");
-            }
+        if (rend != null)
+        {
+            ApplyRandomColorToClothes(rend);
+        }
+        else
+        {
+            Debug.LogWarning($"{obj.name} doesn't have a Renderer.");
+        }
+
+        // Pasang AI wander
+        var ai = obj.GetComponent<NavMeshWander>();
+        if (ai != null)
+        {
+            ai.wanderCenter = centerPoint;
+        }
+        else
+        {
+            Debug.LogWarning($"{obj.name} doesn't have NavMeshWander component.");
         }
     }
 
