@@ -19131,6 +19131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stand Lempar Bola
       objectReference: {fileID: 0}
+    - target: {fileID: 614780198838098704, guid: 5a78f678f575089498d364de200a7936, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6471703248081532125, guid: 5a78f678f575089498d364de200a7936, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -19313,6 +19317,10 @@ PrefabInstance:
     - target: {fileID: 2987174671924672538, guid: 2d83688bedd6d044d92dd8529bf7b153, type: 3}
       propertyPath: m_Name
       value: Stand Tembakan
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987174671924672538, guid: 2d83688bedd6d044d92dd8529bf7b153, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8505006656629542359, guid: 2d83688bedd6d044d92dd8529bf7b153, type: 3}
       propertyPath: m_LocalPosition.x
