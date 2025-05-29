@@ -34,13 +34,10 @@ public class SM_Tembakan_Manager : MonoBehaviour
 
     [Header("Audio Clips")]
     public AudioClip audioCountdownTick;    // Suara countdown tiap detik 3..2..1
-    public AudioClip audioCountdownGo;      // Suara "Go!"
     public AudioClip audioWin;               // Suara menang
     public AudioClip audioLose;              // Suara kalah
-    public AudioClip bgm;
     // Background music saat main
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioSource bgmSource;
 
     private float timer;
     private int score = 0;
@@ -54,10 +51,6 @@ public class SM_Tembakan_Manager : MonoBehaviour
         if (Instance == null) Instance = this;
 
         audioSource = gameObject.AddComponent<AudioSource>();     // untuk efek suara singkat
-        bgmSource = gameObject.AddComponent<AudioSource>();       // untuk BGM
-
-        bgmSource.loop = true;    // BGM looping
-
         initialGunPosition = gunObject.transform.position;
         initialGunRotation = gunObject.transform.rotation;
 
@@ -98,16 +91,14 @@ public class SM_Tembakan_Manager : MonoBehaviour
         gunObject.transform.position = initialGunPosition;
         gunObject.transform.rotation = initialGunRotation;
         gunObject.SetActive(true);
-
+        if (audioCountdownTick != null) audioSource.PlayOneShot(audioCountdownTick);
         for (int i = 3; i >= 1; i--)
         {
             textCountdown321.text = i.ToString();
-            if (audioCountdownTick != null) audioSource.PlayOneShot(audioCountdownTick);
             yield return new WaitForSeconds(1f);
         }
 
         textCountdown321.text = "Go!";
-        if (audioCountdownGo != null) audioSource.PlayOneShot(audioCountdownGo);
         yield return new WaitForSeconds(0.5f);
         UI_StageFront.SetActive(false);
 
@@ -125,12 +116,6 @@ public class SM_Tembakan_Manager : MonoBehaviour
         spawnerObject.GetComponent<TargetSpawner>().StartSpawning();
         UI_StageTop.SetActive(true);
         textScoreGameplay.text = $"Score: {score}";
-
-        if (bgm != null)
-        {
-            bgmSource.clip = bgm;
-            bgmSource.Play();
-        }
 
         if (gameLoopCoroutine != null) StopCoroutine(gameLoopCoroutine);
         gameLoopCoroutine = StartCoroutine(GameLoop());
@@ -164,8 +149,6 @@ public class SM_Tembakan_Manager : MonoBehaviour
         spawnerObject.SetActive(false);
         UI_StageTop.SetActive(false);
         gunObject.SetActive(false);
-
-        if (bgmSource.isPlaying) bgmSource.Stop();
 
         bool success = score >= targetScore;
         textResult.text = success
