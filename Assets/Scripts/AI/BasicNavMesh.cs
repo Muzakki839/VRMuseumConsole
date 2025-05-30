@@ -33,7 +33,8 @@ public class BasicNavMesh : MonoBehaviour
 
     void GoToRandomPoint()
     {
-        Vector3 randomDirection = Random.insideUnitSphere * wanderRadius;
+        Vector3 randomDirection = Random.insideUnitSphere * (wanderRadius * Mathf.Pow(Random.value, 2));
+
         randomDirection += wanderCenter.position;
 
         NavMeshHit hit;

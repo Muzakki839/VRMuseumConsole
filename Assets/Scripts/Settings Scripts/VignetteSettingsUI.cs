@@ -16,6 +16,10 @@ public class VignetteSettingsUI : MonoBehaviour
     [Header("Tunneling Vignette")]
     public UnityEngine.XR.Interaction.Toolkit.Locomotion.Comfort.TunnelingVignetteController vignetteController;
 
+    private const string ApertureKey = "VignetteAperture";
+    private const string FeatherKey = "VignetteFeather";
+    private const string ToggleKey = "VignetteToggle";
+
     void Start()
     {
         if (vignetteController == null)
@@ -24,19 +28,47 @@ public class VignetteSettingsUI : MonoBehaviour
             return;
         }
 
-        // Inisialisasi slider dengan nilai awal dari defaultParameters
-        apertureSlider.value = vignetteController.defaultParameters.apertureSize;
-        featherSlider.value = vignetteController.defaultParameters.featheringEffect;
+        // Load dari PlayerPrefs
+        float savedAperture = PlayerPrefs.GetFloat(ApertureKey, 0.5f);
+        float savedFeather = PlayerPrefs.GetFloat(FeatherKey, 0.5f);
+        bool savedToggle = PlayerPrefs.GetInt(ToggleKey, 1) == 1;
 
-        // Tambahkan listener untuk slider
-        apertureSlider.onValueChanged.AddListener(UpdateAperture);
-        featherSlider.onValueChanged.AddListener(UpdateFeather);
-
-        // Toggle listener
+        apertureSlider.value = savedAperture;
+        featherSlider.value = savedFeather;
         if (vignetteToggle != null)
         {
-            vignetteToggle.isOn = TunellingVignette.gameObject.activeSelf;
-            vignetteToggle.onValueChanged.AddListener(ToggleVignette);
+            vignetteToggle.isOn = savedToggle;
+            TunellingVignette.gameObject.SetActive(savedToggle);
+        }
+
+        UpdateAperture(savedAperture);
+        UpdateFeather(savedFeather);
+
+        apertureSlider.onValueChanged.AddListener((v) =>
+        {
+            UpdateAperture(v);
+            SaveSettings();
+            if (!TunellingVignette.gameObject.activeSelf)
+                TunellingVignette.gameObject.SetActive(true);
+            if (vignetteToggle != null) vignetteToggle.isOn = true;
+        });
+
+        featherSlider.onValueChanged.AddListener((v) =>
+        {
+            UpdateFeather(v);
+            SaveSettings();
+            if (!TunellingVignette.gameObject.activeSelf)
+                TunellingVignette.gameObject.SetActive(true);
+            if (vignetteToggle != null) vignetteToggle.isOn = true;
+        });
+
+        if (vignetteToggle != null)
+        {
+            vignetteToggle.onValueChanged.AddListener((isOn) =>
+            {
+                ToggleVignette(isOn);
+                SaveSettings();
+            });
         }
     }
 
@@ -60,5 +92,13 @@ public class VignetteSettingsUI : MonoBehaviour
         {
             TunellingVignette.gameObject.SetActive(isOn);
         }
+    }
+
+    void SaveSettings()
+    {
+        PlayerPrefs.SetFloat(ApertureKey, apertureSlider.value);
+        PlayerPrefs.SetFloat(FeatherKey, featherSlider.value);
+        PlayerPrefs.SetInt(ToggleKey, TunellingVignette.gameObject.activeSelf ? 1 : 0);
+        PlayerPrefs.Save();
     }
 }

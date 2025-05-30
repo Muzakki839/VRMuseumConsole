@@ -23,6 +23,10 @@ public class SM_LemparBola_Manager : MonoBehaviour
     [Header("Game Objects")]
     public GameObject[] cans; // Semua kaleng
     public GameObject ballSpawner;
+    public GameObject ball; // Referensi ke bola
+
+    private Vector3 initialBallPosition;
+    private Quaternion initialBallRotation;
 
     [Header("Reward Settings")]
     public Transform rewardSpawnPoint;
@@ -50,6 +54,11 @@ public class SM_LemparBola_Manager : MonoBehaviour
     private void Awake()
     {
         if (Instance == null) Instance = this;
+        if (ball != null)
+        {
+            initialBallPosition = ball.transform.position;
+            initialBallRotation = ball.transform.rotation;
+        }
 
         audioSource = gameObject.AddComponent<AudioSource>();
 
@@ -164,7 +173,7 @@ public class SM_LemparBola_Manager : MonoBehaviour
         }
 
         ResetCans();
-
+        ResetBall();
         StartCoroutine(ResetAfterDelay());
     }
 
@@ -182,6 +191,22 @@ public class SM_LemparBola_Manager : MonoBehaviour
             cans[i].transform.rotation = initialCanRotations[i];
 
             Rigidbody rb = cans[i].GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+            }
+        }
+    }
+
+    private void ResetBall()
+    {
+        if (ball != null)
+        {
+            ball.transform.position = initialBallPosition;
+            ball.transform.rotation = initialBallRotation;
+
+            Rigidbody rb = ball.GetComponent<Rigidbody>();
             if (rb != null)
             {
                 rb.linearVelocity = Vector3.zero;

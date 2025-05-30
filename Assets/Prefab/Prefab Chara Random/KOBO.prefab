@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wanderCenter: {fileID: 0}
-  wanderRadius: 10
+  wanderRadius: 35
   waitTime: 2
 --- !u!1 &1454057856153847290
 GameObject:
@@ -234,9 +234,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 0.02
-  MaxDistance: 1
+  MaxDistance: 8
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
