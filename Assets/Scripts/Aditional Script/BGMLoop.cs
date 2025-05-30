@@ -1,10 +1,14 @@
+using System.Collections;
 using UnityEngine;
 
 public class BGMLoop : MonoBehaviour
 {
-    public AudioClip[] bgmList; // Daftar lagu
-    public AudioSource audioSource; // Komponen AudioSource
+    public AudioClip[] bgmList;
+    public AudioSource audioSource;
+    public float fadeDuration = 1.5f; // Durasi fade in/out dalam detik
+
     private int currentIndex = 0;
+    private bool isTransitioning = false;
 
     void Start()
     {
@@ -16,9 +20,9 @@ public class BGMLoop : MonoBehaviour
 
     void Update()
     {
-        if (!audioSource.isPlaying)
+        if (!audioSource.isPlaying && !isTransitioning)
         {
-            PlayNextBGM();
+            StartCoroutine(FadeToNextBGM());
         }
     }
 
@@ -28,9 +32,34 @@ public class BGMLoop : MonoBehaviour
         audioSource.Play();
     }
 
-    void PlayNextBGM()
+    IEnumerator FadeToNextBGM()
     {
-        currentIndex = (currentIndex + 1) % bgmList.Length; // Loop ke awal saat selesai
-        PlayCurrentBGM();
+        isTransitioning = true;
+
+        // Fade out
+        float startVolume = audioSource.volume;
+        for (float t = 0; t < fadeDuration; t += Time.deltaTime)
+        {
+            audioSource.volume = Mathf.Lerp(startVolume, 0f, t / fadeDuration);
+            yield return null;
+        }
+
+        audioSource.volume = 0f;
+        audioSource.Stop();
+
+        // Ganti lagu
+        currentIndex = (currentIndex + 1) % bgmList.Length;
+        audioSource.clip = bgmList[currentIndex];
+        audioSource.Play();
+
+        // Fade in
+        for (float t = 0; t < fadeDuration; t += Time.deltaTime)
+        {
+            audioSource.volume = Mathf.Lerp(0f, startVolume, t / fadeDuration);
+            yield return null;
+        }
+
+        audioSource.volume = startVolume;
+        isTransitioning = false;
     }
 }

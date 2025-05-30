@@ -31,11 +31,11 @@ AudioMixerController:
   m_UpdateMode: 0
   m_ExposedParameters:
   - guid: d3aba21b03648de49961d4d5b251b91f
-    name: Master Volume
+    name: MasterVolume
   - guid: 497ec0ce319601148a93bfb5f891c27c
-    name: Music Volume
+    name: MusicVolume
   - guid: 34082d70366a4204f8bbc4637548020f
-    name: Sfx Volume
+    name: SFXVolume
   m_AudioMixerGroupViews:
   - guids:
     - 2715a49c0089f3e438136c9c11785cef
