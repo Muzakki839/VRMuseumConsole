@@ -179,9 +179,15 @@ public class NavMeshWander : MonoBehaviour
 
     void PickNewWanderTarget()
     {
-        Vector3 randDir = Random.insideUnitSphere * wanderRadius + wanderCenter.position;
+        float biasStrength = 2f; // semakin besar, semakin dekat ke tengah
+        float biasedRadius = wanderRadius * Mathf.Pow(Random.value, biasStrength);
+        Vector3 randDir = Random.insideUnitSphere * biasedRadius + wanderCenter.position;
+
         if (NavMesh.SamplePosition(randDir, out NavMeshHit hit, wanderRadius, NavMesh.AllAreas))
+        {
             currentWanderTarget = hit.position;
+        }
+
         GoToDestination(currentWanderTarget);
     }
 
