@@ -1550,7 +1550,7 @@ Transform:
   m_GameObject: {fileID: 4091748963144044056}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.409, z: 1.258}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1593,6 +1593,7 @@ MonoBehaviour:
   - {fileID: 6263236098165585068}
   - {fileID: 4236175207966836890}
   ballSpawner: {fileID: 6367073397420037374}
+  ball: {fileID: 0}
   rewardSpawnPoint: {fileID: 8437929439886376693}
   rewardPrefab: {fileID: 3164475402919594935, guid: 5d47411dbbc7df84e854c83b80da34bb, type: 3}
   gameDuration: 10
@@ -1621,8 +1622,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 0.2
+  MaxDistance: 15
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1657,7 +1658,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -3787,8 +3788,8 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
+  m_IsKinematic: 1
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &2024084970306998890
@@ -3871,7 +3872,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -3912,7 +3913,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
-  m_FarAttachMode: 0
+  m_FarAttachMode: 1
 --- !u!135 &7760803478861249887
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4678,6 +4679,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1807970279642858887, guid: bd52022cf9491e2438b117347a474e2d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -1760714182489039777, guid: bd52022cf9491e2438b117347a474e2d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 398339958450226850, guid: bd52022cf9491e2438b117347a474e2d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: bd52022cf9491e2438b117347a474e2d, type: 3}
       propertyPath: m_Name
       value: SM_Bola_Visual
@@ -4685,6 +4698,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bd52022cf9491e2438b117347a474e2d, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bd52022cf9491e2438b117347a474e2d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859449791422781057, guid: bd52022cf9491e2438b117347a474e2d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
