@@ -7,6 +7,7 @@ public class JumpscareActivator : MonoBehaviour
     public bool playMovement = false;
 
     [Header("Destruction Settings")]
+    public bool isGone = true;
     public bool isDestroyAfterDelay = false;
     public float destroyDelay = 1f;
 
@@ -23,7 +24,10 @@ public class JumpscareActivator : MonoBehaviour
     private Material[] originalMaterials;
     private void Awake()
     {
-        targetObjectToActivate.SetActive(false);
+        if (isGone)
+        {
+            targetObjectToActivate.SetActive(false);
+        }
     }
     private void Start()
     {
@@ -46,14 +50,11 @@ public class JumpscareActivator : MonoBehaviour
 
         if (isDestroyAfterDelay)
         {
-            Destroy(gameObject, destroyDelay);
+            Destroy(targetObjectToActivate, destroyDelay);
             Debug.Log("Object will be destroyed after delay: " + destroyDelay + " seconds.");
         }
-        else
-        {
-            Destroy(gameObject); // Trigger hanya sekali
-            Debug.Log("Object destroyed immediately.");
-        }
+
+        Destroy(gameObject);
     }
 
     private void ActivateTargetObject()
