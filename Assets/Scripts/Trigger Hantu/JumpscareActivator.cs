@@ -21,7 +21,10 @@ public class JumpscareActivator : MonoBehaviour
 
 
     private Material[] originalMaterials;
-
+    private void Awake()
+    {
+        targetObjectToActivate.SetActive(false);
+    }
     private void Start()
     {
         if (targetRenderer != null)
