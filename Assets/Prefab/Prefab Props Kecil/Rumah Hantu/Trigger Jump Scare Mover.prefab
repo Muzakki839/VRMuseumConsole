@@ -202,7 +202,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -250,6 +250,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4730658852241150911}
     m_Modifications:
+    - target: {fileID: 1315223926812173429, guid: 43f8693863e1c1a43bd462f20ddfdf6a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1837294425382545395, guid: 43f8693863e1c1a43bd462f20ddfdf6a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
