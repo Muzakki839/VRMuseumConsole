@@ -13159,8 +13159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f65dded2cf90214aa87e9b8053f796b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNameToLoad: 
-  fadeImage: {fileID: 0}
+  sceneNameToLoad: Pasar Malam
+  fadeImage: {fileID: 1140559431}
   fadeDuration: 1
 --- !u!1001 &739498915
 PrefabInstance:
@@ -26262,7 +26262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1454409311
 RectTransform:
   m_ObjectHideFlags: 0
