@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: c8bc84aabd92e7848b2edfd73574f2b2
+AssetOrigin:
+  serializedVersion: 1
+  productId: 316978
+  packageName: MIX FURNITURE PACK
+  packageVersion: 1.0
+  assetPath: Assets/ZNS3D/Mix_Furniture_Pack/Meshes/drawer.fbx
+  uploadId: 748272
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -16,8 +23,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -48,7 +53,7 @@ ModelImporter:
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
@@ -107,10 +112,3 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 316978
-  packageName: MIX FURNITURE PACK
-  packageVersion: 1.0
-  assetPath: Assets/ZNS3D/Mix_Furniture_Pack/Meshes/drawer.fbx
-  uploadId: 748272
